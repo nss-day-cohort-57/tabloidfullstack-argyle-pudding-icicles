@@ -1,7 +1,10 @@
-const baseUrl = "/api/UserProfile";
+const baseUrl = "/api";
 
 export const getAllUserProfiles = () => {
-  return fetch(baseUrl).then((res) => res.json());
+  return fetch(baseUrl + "/UserProfile").then((res) => res.json());
+};
+export const getUserDetails = () => {
+  return fetch(baseUrl);
 };
 
 export const addUserProfile = (userProfile) => {
