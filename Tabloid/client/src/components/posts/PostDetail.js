@@ -8,26 +8,25 @@ export const PostDetail = () => {
     const { postId } = useParams()
 
     const getPost = (id) => {
-        getPostById(id).then(post => {
-            const singlePost = post[0]
-            setPost(singlePost)
+        getPostById(id).then(data => {
+            setPost(data)
         })
-        console.log(post)
     }
 
     useEffect(() => {
-        getPost();
-    }, [postId]);
-
+        getPost(postId);
+    }, []);
+    
+    {console.log(post)}
     return (
         <div className="container">
         <div className="row justify-content-center">
+        <img src='{postObject.locationImage}' alt={post.title}/>
         <Card>
             <CardBody>
                 <p>
                     <strong>Post: {post.title}</strong>
                 </p>
-                <p>{post.imageLocation}</p>
                 <p>Content: {post.content}</p>
                 <p>Publication Date: {post.publishDateTime}</p>
                 
