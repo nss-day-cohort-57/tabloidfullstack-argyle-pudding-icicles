@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 using Tabloid.Models;
 using Tabloid.Utils;
 
@@ -51,6 +53,51 @@ namespace Tabloid.Repositories
                     reader.Close();
 
                     return userProfile;
+                }
+            }
+        }
+
+        public List<UserProfile> GetAll()
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        SELECT up.Id, up.[DisplayName], up.FirstName , up.LastName,  up.Email, up.CreateDateTime,  up.ImageLocation, up.UserTypeId, u.Name AS UserType
+                        FROM UserProfile up
+                        JOIN UserType u ON u.Id = up.UserTypeId
+                        Order By CreateDateTime
+                       ";
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        var userProfiles = new List<UserProfile>();
+                        while (reader.Read())
+                        {
+                            userProfiles.Add(new UserProfile()
+                            {
+                                Id = DbUtils.GetInt(reader, "Id"),
+                                DisplayName = DbUtils.GetString(reader, "DisplayName"),
+                                FirstName = DbUtils.GetString(reader, "FirstName"),
+                                LastName = DbUtils.GetString(reader, "LastName"),
+                                Email = DbUtils.GetString(reader, "Email"),
+                                CreateDateTime = DbUtils.GetDateTime(reader, "CreateDateTime"),
+                                ImageLocation = DbUtils.GetString(reader, "ImageLocation"),
+                                UserTypeId = DbUtils.GetInt(reader, "UserTypeId"),
+                                UserType = new UserType
+                                {
+                                    Name = DbUtils.GetString(reader, "UserType")
+                                }
+
+
+                            });
+                        }
+                        reader.Close();
+                        return userProfiles;
+                    }
                 }
             }
         }
