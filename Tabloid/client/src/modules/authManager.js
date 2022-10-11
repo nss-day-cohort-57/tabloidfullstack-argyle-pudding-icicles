@@ -53,6 +53,7 @@ export const logout = () => {
 };
 
 
+
 export const register = (userProfile, password) => {
   return firebase.auth().createUserWithEmailAndPassword(userProfile.email, password)
     .then((createResponse) => _saveUser({ 

@@ -15,7 +15,7 @@ function App() {
   if (isLoggedIn === null) {
     return <Spinner className="app-spinner dark" />;
   }
-
+  
   return (
     <Router>
       <Header isLoggedIn={isLoggedIn}/>
