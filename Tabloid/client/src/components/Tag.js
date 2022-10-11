@@ -3,9 +3,11 @@ import { Card, CardBody } from "reactstrap";
 
 const Tag = ({ tag }) => {
   return (
-    <Card >
+    <Card>
       <CardBody>
-        <div>{tag.name}</div>
+        <p>
+          <strong>{tag.name}</strong>
+        </p>
       </CardBody>
     </Card>
   );

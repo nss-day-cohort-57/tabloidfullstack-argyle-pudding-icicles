@@ -10,7 +10,6 @@ namespace Tabloid.Repositories
     {
         public TagRepository(IConfiguration configuration) : base(configuration) { }
 
-
         private string TagQuery
         {
             get

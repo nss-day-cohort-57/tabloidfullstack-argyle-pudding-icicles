@@ -25,10 +25,7 @@ const _saveUser = (userProfile) => {
     }).then(resp => resp.json()));
 };
 
-
-
 export const getToken = () => firebase.auth().currentUser.getIdToken();
-
 
 export const login = (email, pw) => {
   return firebase.auth().signInWithEmailAndPassword(email, pw)
@@ -47,21 +44,17 @@ export const login = (email, pw) => {
     });
 };
 
-
 export const logout = () => {
   firebase.auth().signOut()
 };
 
-
-
 export const register = (userProfile, password) => {
   return firebase.auth().createUserWithEmailAndPassword(userProfile.email, password)
-    .then((createResponse) => _saveUser({ 
-      ...userProfile, 
-      firebaseUserId: createResponse.user.uid 
+    .then((createResponse) => _saveUser({
+      ...userProfile,
+      firebaseUserId: createResponse.user.uid
     }));
 };
-
 
 export const onLoginStatusChange = (onLoginStatusChangeHandler) => {
   firebase.auth().onAuthStateChanged((user) => {
