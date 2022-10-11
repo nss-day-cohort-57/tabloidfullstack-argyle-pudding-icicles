@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Tag from './Tag';
-import { getAllTags } from "../modules/tagManager";
+import { getAllTags } from "../../modules/tagManager";
 import { Button, NavItem, NavLink } from "reactstrap";
 import { NavLink as RRNavLink } from "react-router-dom";
 

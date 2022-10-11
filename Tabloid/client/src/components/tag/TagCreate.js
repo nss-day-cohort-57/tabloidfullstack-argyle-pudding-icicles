@@ -1,8 +1,8 @@
-import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils"
+
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Form, FormGroup } from "reactstrap"
-import { addTag } from "../modules/tagManager"
+import { addTag } from "../../modules/tagManager"
 
 
 export const TagCreate = () => {
