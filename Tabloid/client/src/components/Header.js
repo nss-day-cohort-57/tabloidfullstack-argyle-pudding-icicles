@@ -28,57 +28,16 @@ export default function Header({ isLoggedIn }) {
             {isLoggedIn && (
               <>
                 <NavItem>
-                  <NavLink tag={RRNavLink} to="/">
-                    Home
-                  </NavLink>
+                  <NavLink tag={RRNavLink} to="/">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={RRNavLink} to="/tag">
-                    Tags
-                  </NavLink>
+                  <NavLink tag={RRNavLink} to="/post">Posts</NavLink>
                 </NavItem>
-              </>
-            )}
-            {/* When isLoggedIn === true, we will render the Home link */}
-            {isLoggedIn && (
-              <NavItem>
-                <NavLink tag={RRNavLink} to="/">
-                  Home
-                </NavLink>
-              </NavItem>
-            )}
-          </Nav>
-          <Nav className="mr-auto" navbar>
-            {/* When isLoggedIn === true, we will render the UserProfile link */}
-            {isLoggedIn && (
-              <NavItem>
-                <NavLink tag={RRNavLink} to="/UserProfile">
-                  UserProfile
-                </NavLink>
-              </NavItem>
-            )}
-          </Nav>
-          <Nav className="mr-auto" navbar>
-            {isLoggedIn && (
-              <NavItem>
-                <NavLink tag={RRNavLink} to="/Post">
-                  Posts
-                </NavLink>
-              </NavItem>
-            )}
-          </Nav>
-          <Nav navbar>
-            {isLoggedIn && (
-              <>
                 <NavItem>
-                  <a
-                    aria-current="page"
-                    className="nav-link"
-                    style={{ cursor: "pointer" }}
-                    onClick={logout}
-                  >
-                    Logout
-                  </a>
+                  <NavLink tag={RRNavLink} to="/tag">Tags</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/UserProfile">UserProfile</NavLink>
                 </NavItem>
               </>
             )}
