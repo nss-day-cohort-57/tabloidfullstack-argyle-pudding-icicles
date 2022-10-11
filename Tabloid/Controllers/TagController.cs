@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Runtime.InteropServices;
 using Tabloid.Repositories;
+using Tabloid.Models;
 
 namespace Tabloid.Controllers
 {
@@ -18,6 +21,15 @@ namespace Tabloid.Controllers
         public IActionResult Get()
         {
             return Ok(_tagRepository.GetAll());
+        }
+
+        
+        [HttpPost]
+        public IActionResult Post(Tag tag)
+        {
+            _tagRepository.Add(tag);
+
+            return CreatedAtAction("Get", new { id = tag.Id }, tag);
         }
 
     }

@@ -7,3 +7,12 @@ export function getAllTags() {
     .then((res) => res.json())
 };
 
+export const addTag = (tag) => {
+  return fetch(baseUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(tag),
+  });
+};

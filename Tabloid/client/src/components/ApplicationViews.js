@@ -2,9 +2,10 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-import TagList from "./TagList";
+import TagList from "./tag/TagList";
 import Hello from "./Hello";
 import { PostList } from "./PostList";
+import { TagCreate } from "./tag/TagCreate";
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
@@ -18,7 +19,7 @@ export default function ApplicationViews({ isLoggedIn }) {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="tag" element={<TagList />} />
-
+          <Route path="tag/create" element={<TagCreate />} />
           <Route path="post" element={<PostList />} />
           <Route path="*" element={<p>Whoops, nothing here...</p>} />
         </Route>
