@@ -15,7 +15,7 @@ export default function TagList() {
 
   return (
     <section>
-      <p className="text-left px-4"><strong>Available Tags:</strong></p>
+      <p className="text-left px-4"><strong>Tag Options:</strong></p>
       {tags.map((tag) => (
         <Tag key={tag.id} tag={tag} />
       ))}
