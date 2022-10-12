@@ -7,7 +7,9 @@ import Hello from "./Hello";
 import { TagCreate } from "./tag/TagCreate";
 import { PostList } from "./posts/PostList";
 import { PostDetail } from "./posts/PostDetail";
+import { CategoryList } from "./Category/CategoryList";
 import UserProfileList from "./UserProfiles/UserProfileList";
+
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
@@ -24,6 +26,7 @@ export default function ApplicationViews({ isLoggedIn }) {
           <Route path='post/:postId' element={<PostDetail />} />
           <Route path="tag" element={<TagList />} />
           <Route path="tag/create" element={<TagCreate />} />
+          <Route path="category" element={<CategoryList />} />
           <Route path="userProfile" element={<UserProfileList />} />
           <Route path="*" element={<p>Whoops, nothing here...</p>} />
         </Route>
