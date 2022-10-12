@@ -8,7 +8,7 @@ const UserProfileList = () => {
   const getUsers = () => {
     getAllUserProfiles().then((userProfiles) => {
       setUserProfiles(userProfiles);
-      console.log(userProfiles);
+      //console.log(userProfiles);
     });
   };
 

@@ -1,10 +1,16 @@
-const baseUrl = "/api";
+import UserProfileDetailsList from "../components/UserProfiles/UserProfileDetails";
+
+const baseUrl = "/api/UserProfile";
 
 export const getAllUserProfiles = () => {
-  return fetch(baseUrl + "/UserProfile").then((res) => res.json());
+  return fetch(baseUrl).then((res) => res.json());
 };
-export const getUserDetails = () => {
-  return fetch(baseUrl);
+export const getUserProfileDetails = (firebaseUserId) => {
+  return fetch(baseUrl + `/${firebaseUserId}`).then((res) => res.json());
+};
+
+export const callComp = () => {
+  return UserProfileDetailsList;
 };
 
 export const addUserProfile = (userProfile) => {

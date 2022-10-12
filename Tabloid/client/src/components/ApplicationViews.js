@@ -7,6 +7,7 @@ import Hello from "./Hello";
 import { PostList } from "./PostList";
 import { TagCreate } from "./tag/TagCreate";
 import UserProfileList from "./UserProfiles/UserProfileList";
+import UserProfileDetailsList from "./UserProfiles/UserProfileDetails";
 
 export default function ApplicationViews({ isLoggedIn }) {
   return (
@@ -23,6 +24,12 @@ export default function ApplicationViews({ isLoggedIn }) {
           <Route path="tag/create" element={<TagCreate />} />
           <Route path="post" element={<PostList />} />
           <Route path="userProfile" element={<UserProfileList />} />
+          <Route
+            path="userProfile/:firebaseUserId"
+            element={<UserProfileDetailsList />}
+          />
+          {/* <Route path="UserProfile" element={<UserProfileDetailsList />} /> */}
+
           <Route path="*" element={<p>Whoops, nothing here...</p>} />
         </Route>
       </Routes>
