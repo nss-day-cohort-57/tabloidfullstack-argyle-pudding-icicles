@@ -16,3 +16,14 @@ export const addTag = (tag) => {
     body: JSON.stringify(tag),
   });
 };
+
+export const getTagById = (tagId) => {
+  return fetch(baseUrl+`/${tagId}`)
+  .then((res) => res.json())
+};
+
+export const deleteTag = (tagId) => {
+  return fetch(baseUrl + `/${tagId}`, {
+    method: "DELETE"
+  })
+}

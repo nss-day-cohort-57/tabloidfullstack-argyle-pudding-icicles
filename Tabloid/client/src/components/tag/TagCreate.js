@@ -15,7 +15,6 @@ const [tag, update] = useState({
   const handleCreateButtonClick = (event) => {
     event.preventDefault()
     const tagToSendToApi = {
-      // image needs to be converted to a blob
       Name: tag.Name
     }
     navigate("/tag")
@@ -27,9 +26,6 @@ const [tag, update] = useState({
         <>
             <Form>
                 <img alt="" src="https://www.pngall.com/wp-content/uploads/11/Horizontal-Line-PNG-Image.png" width="100%" height="100em"></img>
-                
-                <button    onClick={(clickEvent) => { handleCreateButtonClick(clickEvent)}}
-                className="btn-UpdateImage" >Save Tag</button>
                 <FormGroup>
                     <fieldset>
                         <div className="form-description">
@@ -44,6 +40,8 @@ const [tag, update] = useState({
                                         update(copy)
                                     }
                                 } />
+                                <button    onClick={(clickEvent) => { handleCreateButtonClick(clickEvent)}}
+                                className="saveButton" >Save Tag</button>
                         </div>
                     </fieldset>
                 </FormGroup>
