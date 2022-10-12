@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllPosts } from "../modules/postManager";
+import { getAllPosts } from "../../modules/postManager";
 import { Post } from "./Post";
 
 export const PostList = () => {
@@ -17,9 +17,9 @@ export const PostList = () => {
         <div className="container">
         <div className="row justify-content-center">
             {posts.map((post) => (
-                <Post post={post} key={post.id}/>
+                <Post post={post} key={post.id} user={post.userProfile}/>
                 ))}
         </div>
     </div>
-)
+    )
 }
