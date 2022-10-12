@@ -4,32 +4,34 @@ import { Card, CardBody } from "reactstrap"
 import { getPostById } from "../../modules/postManager"
 
 export const PostDetail = () => {
-    const [post, setPost] = useState([])
+    const [post, setPost] = useState(null)
     const { postId } = useParams()
 
     const getPost = (id) => {
-        getPostById(id).then(post => {
-            const singlePost = post[0]
-            setPost(singlePost)
+        getPostById(id).then(data => {
+            setPost(data)
         })
-        console.log(post)
     }
 
     useEffect(() => {
-        getPost();
-    }, [postId]);
-
+        getPost(postId);
+    }, []);
+    if(!post){return null}
     return (
         <div className="container">
         <div className="row justify-content-center">
+        <img src={post.locationImage} alt={post.title}/>
         <Card>
             <CardBody>
                 <p>
-                    <strong>Post: {post.title}</strong>
+                    <strong className="row justify-content-center">{post.title.toUpperCase()}</strong>
                 </p>
-                <p>{post.imageLocation}</p>
-                <p>Content: {post.content}</p>
-                <p>Publication Date: {post.publishDateTime}</p>
+                <p className="row justify-content-center">{post.category.name}</p>
+                <p className="row justify-content-space-between">
+                    <div>{post.userProfile.displayName}</div>
+                    <div>{post.publishDateTime}</div>
+                </p>
+                <p>{post.content}</p>
                 
             </CardBody>
         </Card>
