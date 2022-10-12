@@ -1,4 +1,4 @@
-const baseUrl = 'api/post';
+const baseUrl = '/api/post';
 
 export const getAllPosts = () => {
     return fetch(baseUrl)
@@ -6,6 +6,6 @@ export const getAllPosts = () => {
 };
 
 export const getPostById = (postId) => {
-    return fetch(`/api/post/${postId}`)
+    return fetch(baseUrl+`/${postId}`)
     .then((res) => res.json())
 };

@@ -8,7 +8,7 @@ export const Post = ({post, user }) => {
             <p className="text-left px-2">Posted by: {user.fullName}</p>
             <CardBody>
                 <p>
-                    <Link to={`/post/${post.id}`}>Post: {post.title}</Link>
+                    <strong>Post: <Link to={`/post/${post.id}`}>{post.title.toUpperCase()}</Link></strong>
                 </p>
                 <p>Category: {post.category.name}</p>
             </CardBody>
