@@ -1,4 +1,4 @@
-const baseUrl = 'api/post';
+const baseUrl = '/api/post';
 
 export const getAllPosts = () => {
     return fetch(baseUrl)
