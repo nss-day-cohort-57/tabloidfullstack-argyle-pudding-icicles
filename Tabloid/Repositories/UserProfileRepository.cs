@@ -48,6 +48,8 @@ namespace Tabloid.Repositories
                                 Id = DbUtils.GetInt(reader, "UserTypeId"),
                                 Name = DbUtils.GetString(reader, "UserTypeName"),
                             }
+                            
+                            
                         };
                     }
                     reader.Close();
@@ -65,10 +67,10 @@ namespace Tabloid.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT up.Id, up.[DisplayName], up.FirstName , up.LastName,  up.Email, up.CreateDateTime,  up.ImageLocation, up.UserTypeId, u.Name AS UserType
+                        SELECT up.Id, up.[DisplayName], up.FirstName , up.LastName,  up.Email, up.CreateDateTime,  up.ImageLocation, up.UserTypeId, up.FirebaseUserId, u.Name AS UserType
                         FROM UserProfile up
                         JOIN UserType u ON u.Id = up.UserTypeId
-                        Order By CreateDateTime
+                        Order By up.DisplayName
                        ";
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -87,6 +89,7 @@ namespace Tabloid.Repositories
                                 CreateDateTime = DbUtils.GetDateTime(reader, "CreateDateTime"),
                                 ImageLocation = DbUtils.GetString(reader, "ImageLocation"),
                                 UserTypeId = DbUtils.GetInt(reader, "UserTypeId"),
+                                FirebaseUserId = DbUtils.GetString(reader, "FirebaseUserId"),
                                 UserType = new UserType
                                 {
                                     Name = DbUtils.GetString(reader, "UserType")

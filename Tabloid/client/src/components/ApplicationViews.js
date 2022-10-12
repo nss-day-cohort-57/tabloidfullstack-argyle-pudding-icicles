@@ -9,6 +9,7 @@ import { PostList } from "./posts/PostList";
 import { PostDetail } from "./posts/PostDetail";
 import { CategoryList } from "./Category/CategoryList";
 import UserProfileList from "./UserProfiles/UserProfileList";
+import UserProfileDetailsList from "./UserProfiles/UserProfileDetails";
 
 
 export default function ApplicationViews({ isLoggedIn }) {
@@ -28,6 +29,12 @@ export default function ApplicationViews({ isLoggedIn }) {
           <Route path="tag/create" element={<TagCreate />} />
           <Route path="category" element={<CategoryList />} />
           <Route path="userProfile" element={<UserProfileList />} />
+          <Route
+            path="userProfile/:firebaseUserId"
+            element={<UserProfileDetailsList />}
+          />
+          {/* <Route path="UserProfile" element={<UserProfileDetailsList />} /> */}
+
           <Route path="*" element={<p>Whoops, nothing here...</p>} />
         </Route>
       </Routes>
