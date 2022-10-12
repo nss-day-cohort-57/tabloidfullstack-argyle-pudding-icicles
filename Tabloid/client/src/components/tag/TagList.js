@@ -7,6 +7,7 @@ import "./Tag.css";
 
 export default function TagList() {
   const [tags, setTags] = useState([]);
+  
   const getTagsFromApi = () => {
     getAllTags().then(ts => setTags(ts));
   };

@@ -16,11 +16,19 @@ export const addTag = (tag) => {
     body: JSON.stringify(tag),
   });
 };
+export const updateTag = {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json",
+  },
+    body: JSON.stringify(),
+};
 
 export const getTagById = (tagId) => {
   return fetch(baseUrl+`/${tagId}`)
   .then((res) => res.json())
 };
+
 
 export const deleteTag = (tagId) => {
   return fetch(baseUrl + `/${tagId}`, {
