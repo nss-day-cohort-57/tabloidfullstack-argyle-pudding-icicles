@@ -23,9 +23,7 @@ export const getTagById = (tagId) => {
 };
 
 export const deleteTag = (tagId) => {
-  fetch(baseUrl + `/${tagId}`, {
+  return fetch(baseUrl + `/${tagId}`, {
     method: "DELETE"
   })
-  .then(() => { getAllTags() })
-  
 }
