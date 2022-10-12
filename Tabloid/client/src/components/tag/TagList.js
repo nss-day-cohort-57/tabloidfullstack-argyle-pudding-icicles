@@ -13,7 +13,7 @@ export default function TagList() {
 
   useEffect(() => {
     getTagsFromApi();
-  }, []);
+  }, [tags]);
 
   return (
     <>
