@@ -10,6 +10,7 @@ import { PostDetail } from "./posts/PostDetail";
 import { CategoryList } from "./Category/CategoryList";
 import UserProfileList from "./UserProfiles/UserProfileList";
 import UserProfileDetailsList from "./UserProfiles/UserProfileDetails";
+import { CommentList } from "./posts/CommentList";
 
 
 export default function ApplicationViews({ isLoggedIn }) {
@@ -25,6 +26,7 @@ export default function ApplicationViews({ isLoggedIn }) {
           <Route path="register" element={<Register />} />
           <Route path="post" element={<PostList />} />
           <Route path='post/:postId' element={<PostDetail />} />
+          <Route path='post/:postId/comments' element={<CommentList />} />
           <Route path="tag" element={<TagList />} />
           <Route path="tag/create" element={<TagCreate />} />
           <Route path="category" element={<CategoryList />} />

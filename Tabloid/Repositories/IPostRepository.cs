@@ -8,5 +8,6 @@ namespace Tabloid.Repositories
     {
         List<Post> GetAllPosts();
         public Post GetPostById(int id);
+        public Post GetPostByIdWithComments(int id);
     }
 }
