@@ -11,8 +11,8 @@ export const Category = ({ category }) => {
                     </div>
 
                     <div className="buttonContainer">
-                        <span className="editButton">EDIT</span>
-                        <span className="deleteButton">DELETE</span>
+                        <span className="categoryEditButton">EDIT</span>
+                        <span className="categoryDeleteButton">DELETE</span>
                     </div>
                 </section>
             </CardBody>

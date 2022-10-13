@@ -33,5 +33,13 @@ namespace Tabloid.Controllers
             }
             return Ok(category);
         }
+
+        [HttpPost]
+        public IActionResult Post(Category category)
+        {
+            _categoryRepository.Add(category);
+
+            return CreatedAtAction("Get", new { id = category.Id }, category);
+        }
     }
 }
