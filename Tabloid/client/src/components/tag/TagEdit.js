@@ -4,12 +4,12 @@ import { Form, FormGroup } from "reactstrap"
 import { updateTag } from "../../modules/tagManager"
 
 export const TagEdit = () => {
-    const tagId = useParams()
+    const {tagId} = useParams()
     const navigate = useNavigate()
     
     //create a use state to hold tag obj value that will be set upon the users click of button
 const [updatedTag, update] = useState({
-    Id: tagId,
+    id: tagId,
     Name: ""
   })
 

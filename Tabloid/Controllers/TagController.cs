@@ -26,11 +26,7 @@ namespace Tabloid.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, Tag tag)
         {
-            if (id != tag.Id)
-            {
-                return BadRequest();
-            }
-
+            tag.Id = id;
             _tagRepository.Update(tag);
             return NoContent();
         }

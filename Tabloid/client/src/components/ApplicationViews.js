@@ -10,11 +10,8 @@ import { PostDetail } from "./posts/PostDetail";
 import { CategoryList } from "./Category/CategoryList";
 import UserProfileList from "./UserProfiles/UserProfileList";
 import UserProfileDetailsList from "./UserProfiles/UserProfileDetails";
-<<<<<<< HEAD
 import { TagEdit } from "./tag/TagEdit";
-=======
 import { CommentList } from "./posts/CommentList";
->>>>>>> 9275c1f2497e63bd72f39658d820cb11c9c5a655
 
 
 export default function ApplicationViews({ isLoggedIn }) {

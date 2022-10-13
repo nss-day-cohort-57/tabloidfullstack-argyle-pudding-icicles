@@ -70,7 +70,7 @@ namespace Tabloid.Repositories
                 {
                     cmd.CommandText = @"
                         UPDATE Tag 
-                           SET [Name] = @name, 
+                           SET [Name] = @name
                          WHERE Id = @id";
                     DbUtils.AddParameter(cmd, "@id", tag.Id);
                     cmd.Parameters.AddWithValue("@name", tag.Name);

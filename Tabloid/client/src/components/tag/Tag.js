@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
-import { Button, Card, CardBody, Modal, ModalBody, ModalFooter, ModalHeader, NavItem } from "reactstrap";
+import { Button, Card, CardBody, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { deleteTag } from "../../modules/tagManager";
 import { NavLink as RRNavLink } from "react-router-dom";
+
 
 const Tag = ({ tag }) => {
   const [modal, setModal] = useState(false);

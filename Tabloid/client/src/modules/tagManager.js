@@ -18,7 +18,7 @@ export const addTag = (tag) => {
 };
 
 export const updateTag = (tag) => {
-  return fetch(baseUrl+`/${tag.Id}`, {
+  return fetch(baseUrl+`/${tag.id}`, {
   method: "PUT",
   headers: {
     "Content-Type": "application/json",
