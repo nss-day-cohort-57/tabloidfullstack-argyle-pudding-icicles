@@ -7,19 +7,30 @@ import { Form, FormGroup } from "reactstrap"
 import { addCategory } from "../../modules/categoryManager"
 
 export const CategoryList = () => {
-    const [categories, setCategories] = useState([])
+    const [initialCategories, setInitialCategories] = useState([])
+    const [upToDateCategories, setUpToDateCategories] = useState([])
     const [category, update] = useState({
         Name: ""
     })
 
     const getCategories = () => {
-        getAllCategories().then(categories => setCategories(categories))
+        getAllCategories().then(categories => setInitialCategories(categories))
     }
 
     useEffect(() => {
         getCategories()
     },
         []
+    )
+
+    const getUpToDateCategories = () => {
+        getAllCategories().then(categories => setUpToDateCategories(categories))
+    }
+
+    useEffect(() => {
+        getUpToDateCategories()
+    },
+        [initialCategories]
     )
 
     const handleReset = () => {
@@ -49,7 +60,7 @@ export const CategoryList = () => {
                 </div>
                 <h1 className="categoryPageHeader">CATEGORY MANAGEMENT</h1>
                 {
-                    categories.map((category) => (
+                    upToDateCategories.map((category) => (
                         <Category category={category} key={category.id} />
                     ))
                 }
@@ -57,7 +68,6 @@ export const CategoryList = () => {
                     <FormGroup>
                         <fieldset>
                             <div className="formInputsContainer">
-                                {/* <label htmlFor="name">Category Name:</label> */}
                                 <input type="name"
                                     className="createCategoryInput"
                                     placeholder="Create a new category.."
@@ -74,7 +84,6 @@ export const CategoryList = () => {
                         </fieldset>
                     </FormGroup>
                 </Form>
-                {/* <Link to={"/category/create"}>CREATE CATEGORY</Link> */}
             </div>
         </div>
     )

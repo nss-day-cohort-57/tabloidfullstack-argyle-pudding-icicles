@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export const Category = ({ category }) => {
     return (
@@ -11,7 +12,7 @@ export const Category = ({ category }) => {
                     </div>
 
                     <div className="buttonContainer">
-                        <span className="categoryEditButton">EDIT</span>
+                        <Link to={`/category/edit/${category.id}`} className="categoryEditButton">EDIT</Link>
                         <span className="categoryDeleteButton">DELETE</span>
                     </div>
                 </section>
