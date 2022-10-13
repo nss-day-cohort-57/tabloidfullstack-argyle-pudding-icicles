@@ -5,7 +5,6 @@ import { Category } from "./Category";
 import "./Category.css";
 import { Form, FormGroup } from "reactstrap"
 import { addCategory } from "../../modules/categoryManager"
-import { CreateCategory } from "./CreateCategory";
 
 export const CategoryList = () => {
     const [categories, setCategories] = useState([])
@@ -26,10 +25,7 @@ export const CategoryList = () => {
     const handleReset = () => {
         Array.from(document.querySelectorAll("input")).forEach(
             input => (input.value = "")
-        );
-        // this.setState({
-        //     itemvalues: [{}]
-        // });
+        )
     };
 
     const handleCreateButtonClick = (event) => {

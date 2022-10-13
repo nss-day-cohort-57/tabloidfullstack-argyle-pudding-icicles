@@ -19,12 +19,12 @@
     text-align: center;
 }
 
-.editButton {
+.categoryEditButton {
     padding: 0.25rem 1rem;
     font-size: small;
 }
 
-.deleteButton {
+.categoryDeleteButton {
     background-color: #db534b;
     color: white;
     padding: 0.25rem 1rem;
@@ -75,8 +75,6 @@
 
 #addCategoryForm {
     padding: 16px 0px;
-    /* padding-left: 0px;
-    padding-right: 0px; */
     margin-top: 16px;
 }
 
