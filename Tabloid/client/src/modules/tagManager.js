@@ -17,10 +17,21 @@ export const addTag = (tag) => {
   });
 };
 
+export const updateTag = (tag) => {
+  return fetch(baseUrl+`/${tag.id}`, {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json",
+  },
+    body: JSON.stringify(tag),
+});
+};
+
 export const getTagById = (tagId) => {
   return fetch(baseUrl+`/${tagId}`)
   .then((res) => res.json())
 };
+
 
 export const deleteTag = (tagId) => {
   return fetch(baseUrl + `/${tagId}`, {

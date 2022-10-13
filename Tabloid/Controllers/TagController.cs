@@ -22,8 +22,15 @@ namespace Tabloid.Controllers
         {
             return Ok(_tagRepository.GetAll());
         }
+ 
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Tag tag)
+        {
+            tag.Id = id;
+            _tagRepository.Update(tag);
+            return NoContent();
+        }
 
-        
         [HttpPost]
         public IActionResult Post(Tag tag)
         {
@@ -31,7 +38,7 @@ namespace Tabloid.Controllers
 
             return CreatedAtAction("Get", new { id = tag.Id }, tag);
         }
-        
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
