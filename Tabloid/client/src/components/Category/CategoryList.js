@@ -22,6 +22,7 @@ export const CategoryList = () => {
     },
         []
     )
+
     const handleReset = () => {
         Array.from(document.querySelectorAll("input")).forEach(
             input => (input.value = "")
@@ -37,9 +38,9 @@ export const CategoryList = () => {
             Name: category.Name
         }
 
-        addCategory(categoryToSendToApi)
-        getCategories()
-        handleReset()
+        return addCategory(categoryToSendToApi)
+            .then(getCategories())
+            .then(handleReset())
     }
 
     return (
