@@ -28,7 +28,9 @@
     text-align: center;
 }
 
-.editButton {
+ #editButton {
+    color: black;
+    background-color: aliceblue;
     padding: 0.25rem 1rem;
     border: 0ch;
     font-size: small;
@@ -51,6 +53,16 @@
     font-size: small;
 }
 .saveButton {
+    display: flex;
+    justify-content: center;
+    background-color: #db534b;
+    color: white;
+    padding: 0.25rem 1rem;
+    margin: 1em;
+    border: 0ch;
+    font-size: small;
+}
+.editButton {
     display: flex;
     justify-content: center;
     background-color: #db534b;
