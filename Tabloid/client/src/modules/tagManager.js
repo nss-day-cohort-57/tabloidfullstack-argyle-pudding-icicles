@@ -16,12 +16,15 @@ export const addTag = (tag) => {
     body: JSON.stringify(tag),
   });
 };
-export const updateTag = {
+
+export const updateTag = (tag) => {
+  return fetch(baseUrl+`/${tag.Id}`, {
   method: "PUT",
   headers: {
     "Content-Type": "application/json",
   },
-    body: JSON.stringify(),
+    body: JSON.stringify(tag),
+});
 };
 
 export const getTagById = (tagId) => {

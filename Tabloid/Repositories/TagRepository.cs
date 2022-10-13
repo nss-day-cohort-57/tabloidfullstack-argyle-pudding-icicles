@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using Tabloid.Models;
 using Tabloid.Utils;
@@ -56,6 +57,25 @@ namespace Tabloid.Repositories
 
                     DbUtils.AddParameter(cmd, "@Name", tag.Name);
                     tag.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
+        public void Update(Tag tag)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        UPDATE Tag 
+                           SET [Name] = @name, 
+                         WHERE Id = @id";
+                    DbUtils.AddParameter(cmd, "@id", tag.Id);
+                    cmd.Parameters.AddWithValue("@name", tag.Name);
+
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
