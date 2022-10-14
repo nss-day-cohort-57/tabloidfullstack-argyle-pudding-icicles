@@ -12,6 +12,7 @@ import UserProfileList from "./UserProfiles/UserProfileList";
 import UserProfileDetailsList from "./UserProfiles/UserProfileDetails";
 import { TagEdit } from "./tag/TagEdit";
 import { CommentList } from "./posts/CommentList";
+import { CategoryEdit } from "./Category/CategoryEdit";
 
 
 export default function ApplicationViews({ isLoggedIn }) {
@@ -32,6 +33,7 @@ export default function ApplicationViews({ isLoggedIn }) {
           <Route path="tag/create" element={<TagCreate />} />
           <Route path="tag/edit/:tagId" element={<TagEdit />} />
           <Route path="category" element={<CategoryList />} />
+          <Route path="category/edit/:categoryId" element={<CategoryEdit />} />
           <Route path="userProfile" element={<UserProfileList />} />
           <Route
             path="userProfile/:firebaseUserId"
